@@ -57,6 +57,13 @@ class FacebookToken implements TokenResponseInterface
         return $this->accessToken;
     }
     
+    public function getJson()
+    {
+        
+        return $this->json;
+        
+    }
+    
     public function getProviderKey()
     {
         return 'facebook';

@@ -30,9 +30,15 @@ class FacebookProvider extends Provider
             .'?access_token='.$accessToken;
 
         $json = json_decode($this->request($url));
+
+        $url = 'https://graph.facebook.com/me/friends'
+            .'?access_token='.$accessToken;
+
+        $friends = json_decode($this->request($url));
+        
         $expiresAt = time() + $result['expires'];
 
-        return new FacebookToken($json, $accessToken, $expiresAt);
+        return new FacebookToken($json, $accessToken, $expiresAt, $friends);
     }
 
     public function getAuthorizationUrl($clientId, $scope, $redirectUrl)

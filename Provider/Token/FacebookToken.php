@@ -12,6 +12,7 @@ class FacebookToken implements TokenResponseInterface
     private $json;
     private $accessToken;
     private $expiresAt;
+    private $friends;
 
     /**
      * Constructs a new token
@@ -21,11 +22,12 @@ class FacebookToken implements TokenResponseInterface
      *
      * @return void
      */
-    public function __construct($jsonObject, $accessToken, $expiresAt)
+    public function __construct($jsonObject, $accessToken, $expiresAt, $friends)
     {
         $this->json = $jsonObject;
         $this->accessToken = $accessToken;
         $this->expiresAt = $expiresAt;
+        $this->friends = $friends;
     }
 
     /**
@@ -61,6 +63,13 @@ class FacebookToken implements TokenResponseInterface
     {
         
         return $this->json;
+        
+    }
+    
+    public function getFriends()
+    {
+        
+        return $this->friends;
         
     }
     

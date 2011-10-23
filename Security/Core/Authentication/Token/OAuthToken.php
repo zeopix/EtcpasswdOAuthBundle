@@ -20,7 +20,8 @@ class OAuthToken extends AbstractToken
         $this->setAttribute('access_token', $response->getAccessToken());
         $this->setAttribute('via', $response->getProviderKey());
         if($response->getProviderKey() == "facebook"){
-            $this->setAttribute('json', $response->getJson());    
+            $this->setAttribute('json', $response->getJson()); 
+            $this->setAttribute('friends', $response->getFriends());    
         }
         
     }
